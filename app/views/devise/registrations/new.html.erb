@@ -6,7 +6,15 @@
     </h1>
   </div>
 
-  <%= devise_error_messages! %>
+  <% if @user.errors.any? %>
+    <div class="error-alert">
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+        <li class='error-message'><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <div class='form-text-wrap'>
