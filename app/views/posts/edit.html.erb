@@ -1,0 +1,38 @@
+<%= form_with(model: @post, local: true) do |f| %>
+
+  <% if @post.errors.any? %>
+    <div class="error-alert">
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+        <li class='error-message'><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="date">
+    <%= f.label :通院日 %>
+    <%= f.datetime_select :start_time %>
+  </div>
+
+  <div class="title">
+    <%= f.label :タイトル %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="reason">
+    <%= f.label :通院理由 %>
+    <%= f.text_field :reason %>
+  </div>
+
+  <div class="memo">
+    <%= f.label :メモ %>
+    <%= f.text_field :memo %>
+  </div>
+
+
+  <div class="submit">
+    <%= f.submit "投稿" %>
+  </div>
+
+<% end %>
