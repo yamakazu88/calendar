@@ -10,23 +10,28 @@
     </div>
   <% end %>
 
-  <div class="date">
-    <%= f.label :通院日 %>
-    <%= f.datetime_select :start_time %>
-  </div>
-
   <div class="title">
-    <%= f.label :タイトル %>
+    <%= f.label :【タイトル】 %>
     <%= f.text_field :title %>
   </div>
 
+  <div class="date">
+    <%= f.label :【通院日】 %>
+    <%= f.datetime_select :start_time %>
+  </div>
+
+  <div class="category">
+    <%= f.label :【カテゴリ】 %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => "診療科を選択してください" %>
+  </div>
+
   <div class="reason">
-    <%= f.label :通院理由 %>
+    <%= f.label :【通院理由】 %>
     <%= f.text_field :reason %>
   </div>
 
   <div class="memo">
-    <%= f.label :メモ %>
+    <%= f.label :【メモ】 %>
     <%= f.text_field :memo %>
   </div>
 

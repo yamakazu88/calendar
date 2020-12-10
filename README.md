@@ -26,12 +26,12 @@
 | reason | string     | null: false       |
 | memo   | text       | null: false       |
 | user   | references | foreign_key: true |
+|category| references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many :post_category_relations
-- has_many :categories, through: :post_category_relations
+- belongs_to :category
 
 
 
@@ -43,19 +43,4 @@
 
 ### Association
 
-- has_many :post_category_relations
-- has_many :posts, through: :post_category_relations
-
-
-
-## Post_category_relationsテーブル（中間テーブル）
-
-| Column   | Type       | Options           |
-|----------|------------|-------------------|
-| post     | references | foreign_key: true |
-| category | references | foreign_key: true |
-
-### Association
-
-- belongs_to :post
-- belongs_to :category
+- has_many :posts

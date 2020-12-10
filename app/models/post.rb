@@ -1,8 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
-
-  has_many :post_category_relations
-  has_many :categories, through: :post_category_relations
+  belongs_to :category
 
   with_options presence: true do
     validates :start_time
