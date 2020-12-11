@@ -1136,3 +1136,24 @@ table tr:nth-child(odd){
 .login-flash-message{
   color: red;
 }
+
+.detailed-search{
+  background-color: white;
+  padding: 10px;
+}
+
+.label-name{
+  margin: 10px 10px;
+  float: left;
+}
+
+.search-btn1{
+  width: 10%;
+}
+
+.search-select select{
+  display: flex;
+  width: auto;
+  padding: 10px;
+  
+}
