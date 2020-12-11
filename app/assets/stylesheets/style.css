@@ -1115,3 +1115,13 @@ table tr:nth-child(odd){
   margin: 0 50px;
   padding-bottom: 50px;
 }
+
+.title-form,
+.date-form{
+  width: 50%;
+}
+
+.memo-form,
+.reason-form{
+  height: 100px;
+}
