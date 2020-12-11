@@ -27,9 +27,8 @@
   <% else %>
     まだ投稿がありません。
   <% end %>
+  <%= paginate @posts %>
   <br>
-
-  <%= link_to '日記をかく', new_post_path %>
 
   <%= month_calendar events: @posts do |date, posts| %>
     <%= date.day %>

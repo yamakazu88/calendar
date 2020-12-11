@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.where(user_id: current_user).order("start_time DESC")
+    @posts = Post.where(user_id: current_user).order("start_time DESC").page(params[:page]).per(5)
   end
 
   def new
