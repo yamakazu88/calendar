@@ -1,6 +1,6 @@
 <div class="mypage">
   <div class="posts-list">
-    <p><%= @nickname %>さんの投稿一覧</p>
+    <h1>＜<%= @nickname %>さんの投稿一覧＞</h1>
     <% if @posts.any? %>
       <table>
         <thead>
@@ -15,7 +15,7 @@
           <% @posts.each do |post| %>
             <tr>
               <td><%= post.title %></td>
-              <td><%= post.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+              <td><%= post.start_time.strftime("%Y-%m-%d") %></td>
               <td><%= link_to '詳細', post %></td>
               <td><%= link_to '編集', edit_post_path(post.id) %></td>
               <td><%= link_to '削除',post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,7 +26,10 @@
     <% else %>
       まだ投稿がありません
     <% end %>
+    <%= paginate @posts %>
   </div>
+  <br>
+  <br>
 
   <%= week_calendar events: @posts do |date, posts| %>
     <%= date.day %>
@@ -38,11 +41,12 @@
       <% end %>
     <% end %>
   <% end %>
+  <br>
 
 
   <div class="category-area">
     <div class="category-list">
-      <p><%= @category1.name %>の投稿一覧</p>
+      <h1>＜<%= @category1.name %>の投稿一覧＞</h1>
       <% if @post1.any? %>
         <table>
           <thead>
@@ -68,10 +72,13 @@
       <% else %>
         まだ投稿がありません
       <% end %>
+      <%= paginate @post1 %>
     </div>
+    <br>
+    <br>
 
     <div class="category-list">
-      <p><%= @category2.name %>の投稿一覧</p>
+      <h1>＜<%= @category2.name %>の投稿一覧＞</h1>
       <% if @post2.any? %>
         <table>
           <thead>
@@ -97,10 +104,13 @@
       <% else %>
         まだ投稿がありません
       <% end %>
+      <%= paginate @post2 %>
     </div>
+    <br>
+    <br>
 
     <div class="category-list">
-      <p><%= @category3.name %>の投稿一覧</p>
+      <h1>＜<%= @category3.name %>の投稿一覧＞</h1>
       <% if @post3.any? %>
         <table>
           <thead>
@@ -126,10 +136,13 @@
       <% else %>
         まだ投稿がありません
       <% end %>
+      <%= paginate @post3 %>
     </div>
+    <br>
+    <br>
 
     <div class="category-list">
-      <p><%= @category4.name %>の投稿一覧</p>
+      <h1>＜<%= @category4.name %>の投稿一覧＞</h1>
       <% if @post4.any? %>
         <table>
           <thead>
@@ -155,10 +168,13 @@
       <% else %>
         まだ投稿がありません
       <% end %>
+      <%= paginate @post4 %>
     </div>
+    <br>
+    <br>
 
     <div class="category-list">
-      <p><%= @category5.name %>の投稿一覧</p>
+      <h1>＜<%= @category5.name %>の投稿一覧＞</h1>
       <% if @post5.any? %>
         <table>
           <thead>
@@ -184,10 +200,13 @@
       <% else %>
         まだ投稿がありません
       <% end %>
+      <%= paginate @post5 %>
     </div>
+    <br>
+    <br>
 
     <div class="category-list">
-      <p><%= @category6.name %>の投稿一覧</p>
+      <h1>＜<%= @category6.name %>の投稿一覧＞</h1>
       <% if @post6.any? %>
         <table>
           <thead>
@@ -213,10 +232,13 @@
       <% else %>
         まだ投稿がありません
       <% end %>
+      <%= paginate @post6 %>
     </div>
+    <br>
+    <br>
 
     <div class="category-list">
-      <p><%= @category7.name %>の投稿一覧</p>
+      <h1>＜<%= @category7.name %>の投稿一覧＞</h1>
       <% if @post7.any? %>
         <table>
           <thead>
@@ -242,10 +264,13 @@
       <% else %>
         まだ投稿がありません
       <% end %>
+      <%= paginate @post7 %>
     </div>
+    <br>
+    <br>
 
     <div class="category-list">
-      <p><%= @category8.name %>の投稿一覧</p>
+      <h1>＜<%= @category8.name %>の投稿一覧＞</h1>
       <% if @post8.any? %>
         <table>
           <thead>
@@ -271,7 +296,9 @@
       <% else %>
         まだ投稿がありません
       <% end %>
+      <%= paginate @post8 %>
     </div>
+    <br>
 
   </div>
 </div>
