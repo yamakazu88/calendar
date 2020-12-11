@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @user = current_user
 
     #内科
-    @post1 = Post.where(user_id: @user.id, category_id: 1).page(params[:page]).per(2)
+    @post1 = Post.where(user_id: @user.id, category_id: 1).page(params[:page]).per(5)
     @category1 = Category.find(1)
 
     #外科

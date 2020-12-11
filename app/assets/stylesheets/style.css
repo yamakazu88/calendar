@@ -1005,7 +1005,13 @@ form input[type="submit"]:hover {
   background-color: #84d3ef;
 }
 
+.contents-row{
+  width: 100%;
+  padding: 10px 25%;
+}
+
 .container {
+  width: 100%;
   margin: 20px 0;
   padding: 30px;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
@@ -1056,4 +1062,21 @@ footer p {
 
 .search-form .search-btn {
   width: 10%;
+}
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
 }
