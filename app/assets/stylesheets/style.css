@@ -1008,7 +1008,7 @@ form input[type="submit"]:hover {
 
 .contents-row{
   width: 100%;
-  padding: 10px 25%;
+  padding: 10px 15%;
 }
 
 .container {
@@ -1124,4 +1124,15 @@ table tr:nth-child(odd){
 .memo-form,
 .reason-form{
   height: 100px;
+}
+
+.form-header-text{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.indispensable,
+.error-message,
+.login-flash-message{
+  color: red;
 }
