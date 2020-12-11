@@ -1,29 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>【タイトル】</strong>
-  <%= @post.title %>
-</p>
+<%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+<br>
 
-<p>
-  <strong>【通院日】</strong>
-  <%= @post.start_time.strftime("%Y-%m-%d %H:%M") %>
-</p>
+<div class="show">
+  <table>
 
-<p>
-  <strong>【カテゴリ】</strong>
-    <%= @post.category.name %>
-</p>
+    <tr>
+      <th><strong>【タイトル】</strong></th><td><%= @post.title %></td>
+    </tr>
 
-<p>
-  <strong>【通院理由】</strong>
-  <%= @post.reason %>
-</p>
+    <tr>
+      <th><strong>【通院日】</strong></th><td><%= @post.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+    </tr>
 
-<p>
-  <strong>【メモ】</strong>
-  <%= @post.memo %>
-</p>
+    <tr>
+      <th><strong>【カテゴリ】</strong></th><td><%= @post.category.name %></td>
+    </tr>
 
-<%= link_to '編集', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    <tr>
+      <th><strong>【通院理由】</strong></th><td><%= @post.reason %></td>
+    </tr>
+
+    <tr>
+      <th><strong>【メモ】</strong></th><td><%= @post.memo %></td>
+    </tr>
+
+  </table>
+</div>
+<br>
+
+<div class="show-link">
+  <%= link_to '編集', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
+</div>

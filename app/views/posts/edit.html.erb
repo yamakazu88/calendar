@@ -9,35 +9,47 @@
       </ul>
     </div>
   <% end %>
+  <br>
 
   <div class="title">
     <%= f.label :【タイトル】 %>
-    <%= f.text_field :title %>
+    <br>
+    <%= f.text_field :title, class:"title-form" %>
   </div>
+  <br>
 
   <div class="date">
     <%= f.label :【通院日】 %>
-    <%= f.datetime_select :start_time %>
+    <br>
+    <%= f.date_field :start_time, class:"date-form" %>
   </div>
+  <br>
 
   <div class="category">
     <%= f.label :【カテゴリ】 %>
-    <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => "診療科を選択してください" %>
+    <br>
+    <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => "診療科を選択してください", class:"category-form" %>
   </div>
+  <br>
 
   <div class="reason">
     <%= f.label :【通院理由】 %>
-    <%= f.text_field :reason %>
+    <br>
+    <%= f.text_field :reason, class:"reason-form" %>
   </div>
+  <br>
 
   <div class="memo">
     <%= f.label :【メモ】 %>
-    <%= f.text_field :memo %>
+    <br>
+    <%= f.text_field :memo, class:"memo-form" %>
   </div>
+  <br>
 
 
   <div class="submit">
     <%= f.submit "投稿" %>
   </div>
+  <br>
 
 <% end %>
