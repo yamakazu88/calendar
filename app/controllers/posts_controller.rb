@@ -44,6 +44,7 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.search(params[:keyword]).order("start_time DESC").page(params[:page]).per(5)
+    @keyword = params[:keyword]
   end
 
   private

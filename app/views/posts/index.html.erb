@@ -7,7 +7,21 @@
 <br>
 
 <% if user_signed_in? %>
-  <h1>＜<%= current_user.nickname %>さんの通院記録＞</h1>
+  <%= month_calendar events: @posts do |date, posts| %>
+    <%= date.day %>
+    <% if posts.any? %>
+      <% posts.each do |post| %>
+        <div>
+          <%= link_to post.title, post %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  <br>
+  <br>
+  
+  <h1 class="top-title">＜<%= current_user.nickname %>さんの通院記録＞</h1>
+  <br>
   <% if @posts.any? %>
     <table>
       <thead>
@@ -35,17 +49,7 @@
   <% end %>
   <%= paginate @posts %>
   <br>
-
-  <%= month_calendar events: @posts do |date, posts| %>
-    <%= date.day %>
-    <% if posts.any? %>
-      <% posts.each do |post| %>
-        <div>
-          <%= link_to post.title, post %>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
+  <br>
 <% else %>
   新規登録・ログインしてください
 <% end %>
