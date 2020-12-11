@@ -4,7 +4,6 @@
 <% end %>
 <br>
 
-
 <h1 class="search-title">＜”<%= @keyword %>”での検索結果＞</h1>
 <br>
 <table>
@@ -29,3 +28,71 @@
   </tbody>
 </table>
 <%= paginate @posts %>
+<br>
+
+<div class="detailed-search">
+  <h1 class="search-title">
+    ＜詳細検索＞
+  </h1>
+  <%= search_form_for @p, url: search_posts_path, class: "search-select" do |f| %>
+    <div class="title">
+      <%= f.label :title_eq, 'タイトル名', class:"label-name" %>
+      <%= f.collection_select :title_eq, @post_title, :title, :title,  include_blank: '指定なし', class:"title-form" %>
+    </div>
+    <br>
+
+    <div class="date">
+      <%= f.label :start_time_eq, '日付', class:"label-name" %>
+      <%= f.date_field :start_time_eq, include_blank: '指定なし', class:"date-form" %>
+    </div>
+    <br>
+
+    <div class="category">
+      <%= f.label :category_name_eq, 'カテゴリー', class:"label-name" %>
+      <%= f.collection_select :category_name_eq, @category_name, :name, :name, include_blank: '指定なし', class:"category-form" %>
+    </div>
+    <br>
+    <%= f.submit '検索', class: "search-btn1" %>
+  <% end %>
+  <br>
+
+  <h1 class="search-title">
+    ＜詳細検索結果＞
+  </h1>
+  <br>
+  <%# 検索結果の個数で条件分岐 %>
+  <% if @results.length !=0 %>
+    <table>
+      <thead>
+        <tr>
+          <th>タイトル</th>
+          <th>日付</th>
+          <th>診療科</th>
+          <th>通院理由</th>
+          <th>メモ</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @results.each do |result| %>
+          <tr>
+            <td><%= result.title %></td>
+            <td><%= result.start_time.strftime("%Y-%m-%d") %></td>
+            <td><%= result.category.name %></td>
+            <td><%= result.reason %></td>
+            <td><%= result.memo %></td>
+            <td><%= link_to '詳細', result %></td>
+            <td><%= link_to '編集', edit_post_path(result.id) %></td>
+            <td><%= link_to '削除',post_path(result.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @results %>
+  <% else %>
+    該当する商品はありません
+  <% end %>
+  <br>
+</div>
+<br>
