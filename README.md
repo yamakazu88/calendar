@@ -20,14 +20,14 @@
 
 ## Postsテーブル
 
-| Column | Type       | Options           |
-|--------|------------|-------------------|
-| date   | date       | null: false       |
-| title  | string     | null: false       |
-| reason | string     | null: false       |
-| memo   | text       | null: false       |
-| user   | references | foreign_key: true |
-|category| references | foreign_key: true |
+| Column     | Type       | Options           |
+|------------|------------|-------------------|
+| start_time | datetime   | null: false       |
+| title      | string     | null: false       |
+| reason     | string     | null: false       |
+| memo       | text       | null: false       |
+| user       | references | foreign_key: true |
+|category    | references | foreign_key: true |
 
 ### Association
 
@@ -51,7 +51,7 @@
 
 | Column      | Type       | Options           |
 |-------------|------------|-------------------|
-| date        | date       | null: false       |
+| start_time  | datetime   | null: false       |
 | temperature | integer    |                   |
 | weight      | integer    |                   |
 | blood_max   | integer    |                   |
