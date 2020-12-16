@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<div class="posts-list">
+  <h1 class="mypage-title">＜<%= @nickname %>さんの直近の体調記録＞</h1>
+  <br>
+  <% if @data.any? %>
+    <table>
+      <thead>
+        <tr>
+          <th>日付</th>
+          <th>体温</th>
+          <th>体重</th>
+          <th>最高血圧</th>
+          <th>最低血圧</th>
+          <th>体調</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @data.each do |data| %>
+          <tr>
+            <td><%= data.start_time.strftime("%Y-%m-%d") %></td>
+            <td><%= data.temperature %></td>
+            <td><%= data.weight %></td>
+            <td><%= data.blood_max %></td>
+            <td><%= data.blood_min %></td>
+            <td><%= data.condition %></td>
+            <td><%= link_to '詳細', data %></td>
+            <td><%= link_to '編集', edit_condition_path(data.id) %></td>
+            <td><%= link_to '削除',condition_path(data.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    まだ記録がありません
+  <% end %>
+  <%#= paginate @data %>
+  <%= link_to "記録する", new_condition_path, class: "condition-post" %>
+</div>
