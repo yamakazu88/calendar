@@ -37,6 +37,7 @@
     <%= paginate @posts %>
   </div>
   <br>
+  <%= link_to '体調管理ページへ', conditions_path %>
   <br>
 
   <%= week_calendar events: @posts do |date, posts| %>

@@ -1,0 +1,77 @@
+<%= form_with(model: @data, local: true) do |f| %>
+
+  <% if @data.errors.any? %>
+    <div class="error-alert">
+      <ul>
+        <% @data.errors.full_messages.each do |message| %>
+        <li class='error-message'><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+
+  <div class="date">
+    <%= f.label :【日付】 %>
+    <br>
+    <%= f.date_field :start_time, class:"date-form" %>
+  </div>
+  <br>
+
+  <div class="temperature">
+    <%= f.label :【体温】 %>
+    <br>
+    <%= f.text_field :temperature, class:"temperature-form" %>
+  </div>
+  <br>
+
+  <div class="weight">
+    <%= f.label :【体重】 %>
+    <br>
+    <%= f.text_field :weight, class:"weight-form" %>
+  </div>
+  <br>
+
+  <div class="blood">
+    <%= f.label :【最高血圧】 %>
+    <br>
+    <%= f.text_field :blood_max, class:"blood-form" %>
+    <br>
+    <%= f.label :【最低血圧】 %>
+    <br>
+    <%= f.text_field :blood_min, class:"blood-form" %>
+  </div>
+  <br>
+
+  <div class="condition">
+    <%= f.radio_button :condition, :"1" %>
+    <%= f.label :condition, "非常に悪い", {value: 1} %>
+    <%= f.radio_button :condition, :"2" %>
+    <%= f.label :condition, "悪い", {value: 2} %>
+    <%= f.radio_button :condition, :"3", checked: true %>
+    <%= f.label :condition, "普通", {value: 3} %>
+    <%= f.radio_button :condition, :"4" %>
+    <%= f.label :condition, "良い", {value: 4} %>
+    <%= f.radio_button :condition, :"5" %>
+    <%= f.label :condition, "非常に良い", {value: 5} %>
+  </div>
+  <br>
+
+  <div class="memo">
+    <%= f.label :【メモ】 %>
+    <br>
+    <%= f.text_field :memo, class:"memo-form" %>
+  </div>
+  <br>
+
+
+  <div class="submit">
+    <%= f.submit "投稿" %>
+  </div>
+  <br>
+
+  <div class="show-link">
+    <%= link_to 'Back', conditions_path %>
+  </div>
+
+<% end %>

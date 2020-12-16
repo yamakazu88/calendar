@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<div class="show">
+  <h1 class="mypage-title">＜<%= @nickname %>さんの<%= @data.start_time.strftime("%m/%d") %>の体調記録＞</h1>
+  <br>
+  <table>
+    <tr>
+      <th><strong>【日付】</strong></th><td><%= @data.start_time.strftime("%Y-%m-%d") %></td>
+    </tr>
+
+    <tr>
+      <th><strong>【体温】</strong></th><td><%= @data.temperature %>℃</td>
+    </tr>
+
+    <tr>
+      <th><strong>【体重】</strong></th><td><%= @data.weight %>kg</td>
+    </tr>
+
+    <tr>
+      <th><strong>【最高血圧】</strong></th><td><%= @data.blood_max %></td>
+    </tr>
+
+    <tr>
+      <th><strong>【最低血圧】</strong></th><td><%= @data.blood_min %></td>
+    </tr>
+
+    <tr>
+      <th><strong>【体調】</strong></th><td><%= @data.condition %></td>
+    </tr>
+
+    <tr>
+      <th><strong>【メモ】</strong></th><td><%= @data.memo %></td>
+    </tr>
+
+  </table>
+</div>
+<br>
+
+<div class="show-link">
+  <%= link_to '編集', edit_condition_path(@data) %>
+  <%= link_to 'Back', conditions_path %>
+</div>
