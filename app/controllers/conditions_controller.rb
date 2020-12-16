@@ -11,7 +11,7 @@ class ConditionsController < ApplicationController
   def create
     @data = Condition.create(condition_params)
     if @data.save
-      redirect_to :index
+      redirect_to conditions_path
     else
       render :new
     end
@@ -19,21 +19,22 @@ class ConditionsController < ApplicationController
 
   def show
     @data = Condition.find(params[:id])
+    @nickname = current_user.nickname
   end
 
   def edit
     @data = Condition.find(params[:id])
-    if cuurent_user.id != @data.user_id
-      redirect_to :index
+    if current_user.id != @data.user_id
+      redirect_to conditions_path
     end
   end
 
   def update
     @data = Condition.find(params[:id])
     if @data.update(condition_params)
-      redirect_to :index, notice: "編集しました"
+      redirect_to conditions_path, notice: "編集しました"
     else
-      render 'edit'
+      render :edit
     end
   end
 
