@@ -1,0 +1,9 @@
+<div class="blood-chart">
+  <h1>＜最高血圧グラフ＞</h1>
+  <br>
+  <%= line_chart Condition.pluck(:start_time, :blood_max), xtitle: "日付", ytitle: "最高血圧", curve: false, min: 50, max: 200, id: "column-chart", width: "600px", height: "300px" %>
+</div>
+<br>
+<div class="show-link">
+  <%= link_to 'Back', conditions_path, class:"back" %>
+</div>

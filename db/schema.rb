@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2020_12_14_030800) do
 
   create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "start_time", null: false
-    t.integer "temperature"
-    t.integer "weight"
+    t.float "temperature"
+    t.float "weight"
     t.integer "blood_max"
     t.integer "blood_min"
     t.integer "condition", null: false

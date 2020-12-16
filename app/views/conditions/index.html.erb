@@ -20,10 +20,10 @@
         <% @data.each do |data| %>
           <tr>
             <td><%= data.start_time.strftime("%Y-%m-%d") %></td>
-            <td><%= data.temperature %>℃</td>
-            <td><%= data.weight %>kg</td>
-            <td><%= data.blood_max %></td>
-            <td><%= data.blood_min %></td>
+            <td><%= data.temperature.floor(1) %>℃</td>
+            <td><%= data.weight.floor(1) %>kg</td>
+            <td><%= data.blood_max %>mmHg</td>
+            <td><%= data.blood_min %>mmHg</td>
             <td><%= link_to '詳細', data %></td>
             <td><%= link_to '編集', edit_condition_path(data.id) %></td>
             <td><%= link_to '削除',condition_path(data.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -37,4 +37,16 @@
   <%= paginate @data %>
   <br>
   <%= link_to "記録する", new_condition_path, class: "condition-post" %>
+  <br>
+  <br>
+  <div class="temp-chart">
+    <h1>＜各項目の推移＞</h1>
+    <ul>
+      <li><%= link_to '体温', temp_conditions_path, class:"graph" %></li>
+      <li><%= link_to '体重', weight_conditions_path, class:"graph" %></li>
+      <li><%= link_to '最高血圧', blood_max_conditions_path, class:"graph" %></li>
+      <li><%= link_to '最低血圧', blood_min_conditions_path, class:"graph" %></li>
+      <li><%= link_to '体調', com_conditions_path, class:"graph" %></li>
+    </ul>
+  </div>
 </div>
