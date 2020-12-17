@@ -454,21 +454,19 @@ i {
 ul {
   margin: 0;
   padding: 0;
+  display: flex;
 }
 
 ul li {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 5px;
+  margin: 5px;
 }
 
 .row {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: 660px;
+  margin: 0 10%;
+  max-width: 80%;
   *zoom: 1;
 }
 
@@ -705,7 +703,13 @@ form input[type="submit"] {
 }
 
 .btn,
-header.header div.header__bar.row div.grid-6 a.post {
+header.header div.header__bar.row div.grid-6 a.post,
+a.user-nickname,
+a.condition-post,
+a.graph,
+a.condition,
+a.edit,
+a.back {
   padding: 8px 20px;
   font-size: 14px;
   border: 2px solid #57C3E9;
@@ -714,6 +718,7 @@ header.header div.header__bar.row div.grid-6 a.post {
   text-align: center;
   border-radius: 3px;
   display: inline-block;
+  margin-right: 15px;
 }
 
 .btn:hover,
@@ -1083,9 +1088,9 @@ footer p {
 }
 
 table{
-  width: 80%;
-  border-collapse: collapse;
-  border-spacing: 0;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
   border: 2px solid whitesmoke;
 }
 
@@ -1155,5 +1160,26 @@ table tr:nth-child(odd){
   display: flex;
   width: auto;
   padding: 10px;
-  
+}
+
+.graph-title{
+  font-size: 25px;
+  font-weight: bold;
+  margin: 10px 30px;
+}
+
+.condition{
+  display: flex;
+  align-items: baseline;
+}
+
+.condition-title{
+  font-weight: bold;
+  width: 10%;
+  margin-left: 0px;
+}
+
+.condition-input{
+  display: flex;
+  width: 5%;
 }

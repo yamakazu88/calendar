@@ -44,15 +44,20 @@
   <br>
 
   <div class="condition">
-    <%= f.radio_button :condition, :"1" %>
+    <p class="condition-title">【体調】</p>
+    <%= f.radio_button :condition, :"1", class:"condition-input" %>
     <%= f.label :condition, "非常に悪い", {value: 1} %>
-    <%= f.radio_button :condition, :"2" %>
+
+    <%= f.radio_button :condition, :"2", class:"condition-input" %>
     <%= f.label :condition, "悪い", {value: 2} %>
-    <%= f.radio_button :condition, :"3", checked: true %>
+
+    <%= f.radio_button :condition, :"3", class:"condition-input" %>
     <%= f.label :condition, "普通", {value: 3} %>
-    <%= f.radio_button :condition, :"4" %>
+
+    <%= f.radio_button :condition, :"4", class:"condition-input" %>
     <%= f.label :condition, "良い", {value: 4} %>
-    <%= f.radio_button :condition, :"5" %>
+
+    <%= f.radio_button :condition, :"5", class:"condition-input" %>
     <%= f.label :condition, "非常に良い", {value: 5} %>
   </div>
   <br>

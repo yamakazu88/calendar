@@ -1,7 +1,7 @@
 <div class="blood-chart">
-  <h1>＜最低血圧グラフ＞</h1>
+  <h1 class="graph-title">＜最低血圧グラフ＞</h1>
   <br>
-  <%= line_chart Condition.pluck(:start_time, :blood_min), xtitle: "日付", ytitle: "最低血圧", curve: false, min: 30, max: 150, id: "column-chart", width: "600px", height: "300px" %>
+  <%= line_chart Condition.pluck(:start_time, :blood_min), xtitle: "日付", ytitle: "最低血圧", curve: false, min: 30, max: 150, id: "column-chart", width: "100%", height: "300px" %>
 </div>
 <br>
 <div class="show-link">

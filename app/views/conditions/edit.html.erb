@@ -21,38 +21,43 @@
   <div class="temperature">
     <%= f.label :【体温】 %>
     <br>
-    <%= f.text_field :temperature, class:"temperature-form" %>
+    <%= f.text_field :temperature,placeholder: "半角数字（小数点第１位まで）を入力", class:"temperature-form" %>
   </div>
   <br>
 
   <div class="weight">
     <%= f.label :【体重】 %>
     <br>
-    <%= f.text_field :weight, class:"weight-form" %>
+    <%= f.text_field :weight,placeholder: "半角数字（小数点第１位まで）を入力", class:"weight-form" %>
   </div>
   <br>
 
   <div class="blood">
     <%= f.label :【最高血圧】 %>
     <br>
-    <%= f.text_field :blood_max, class:"blood-form" %>
+    <%= f.text_field :blood_max, placeholder: "半角数字を入力", class:"blood-form" %>
     <br>
     <%= f.label :【最低血圧】 %>
     <br>
-    <%= f.text_field :blood_min, class:"blood-form" %>
+    <%= f.text_field :blood_min, placeholder: "半角数字を入力", class:"blood-form" %>
   </div>
   <br>
 
   <div class="condition">
-    <%= f.radio_button :condition, :"1" %>
+    <p class="condition-title">【体調】</p>
+    <%= f.radio_button :condition, :"1", class:"condition-input" %>
     <%= f.label :condition, "非常に悪い", {value: 1} %>
-    <%= f.radio_button :condition, :"2" %>
+
+    <%= f.radio_button :condition, :"2", class:"condition-input" %>
     <%= f.label :condition, "悪い", {value: 2} %>
-    <%= f.radio_button :condition, :"3", checked: true %>
+
+    <%= f.radio_button :condition, :"3", class:"condition-input" %>
     <%= f.label :condition, "普通", {value: 3} %>
-    <%= f.radio_button :condition, :"4" %>
+
+    <%= f.radio_button :condition, :"4", class:"condition-input" %>
     <%= f.label :condition, "良い", {value: 4} %>
-    <%= f.radio_button :condition, :"5" %>
+
+    <%= f.radio_button :condition, :"5", class:"condition-input" %>
     <%= f.label :condition, "非常に良い", {value: 5} %>
   </div>
   <br>
@@ -70,7 +75,7 @@
   </div>
   <br>
 
-  <div class="edit-link">
+  <div class="show-link">
     <%= link_to 'Back', conditions_path, class:"back" %>
   </div>
 
