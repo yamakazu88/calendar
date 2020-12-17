@@ -10,7 +10,11 @@ class ConditionsController < ApplicationController
 
   def create
     @data = Condition.create(condition_params)
+    # @data.temperature += params[:temperature].to_f
+    # @data.weight += params[:weight].to_f
     if @data.save
+      @data.temperature += params[:temperature].to_f
+      @data.weight += params[:weight].to_f
       redirect_to conditions_path
     else
       render :new
@@ -42,6 +46,21 @@ class ConditionsController < ApplicationController
     @data = Condition.find(params[:id])
     @data.destroy
     redirect_to conditions_path, notice: "削除しました"
+  end
+
+  def temp
+  end
+
+  def weight
+  end
+
+  def blood_max
+  end
+
+  def blood_min
+  end
+
+  def com
   end
 
   private

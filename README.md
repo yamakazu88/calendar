@@ -52,8 +52,8 @@
 | Column      | Type       | Options           |
 |-------------|------------|-------------------|
 | start_time  | datetime   | null: false       |
-| temperature | integer    |                   |
-| weight      | integer    |                   |
+| temperature | float      |                   |
+| weight      | float      |                   |
 | blood_max   | integer    |                   |
 | blood_min   | integer    |                   |
 | condition   | integer    | null: false       |
