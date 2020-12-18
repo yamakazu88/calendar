@@ -19,6 +19,7 @@
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
             <%= link_to '体調管理', conditions_path, class:"condition" %>
+            <%= link_to '処方管理', medicines_path, class:"condition" %>
             <%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             <%= link_to "投稿する", new_post_path, class: "post" %>
