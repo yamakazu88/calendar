@@ -2,6 +2,7 @@ class ConditionsController < ApplicationController
   def index
     @data = Condition.where(user_id: current_user).order("start_time DESC").page(params[:page]).per(5)
     @nickname = current_user.nickname
+    @user = current_user
   end
 
   def new

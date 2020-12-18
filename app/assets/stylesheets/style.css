@@ -706,6 +706,7 @@ form input[type="submit"] {
 header.header div.header__bar.row div.grid-6 a.post,
 a.user-nickname,
 a.condition-post,
+a.medicine-post,
 a.graph,
 a.condition,
 a.edit,
@@ -1182,4 +1183,8 @@ table tr:nth-child(odd){
 .condition-input{
   display: flex;
   width: 5%;
+}
+
+.file-form{
+  background-color: white;
 }

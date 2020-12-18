@@ -2,6 +2,7 @@ class MedicinesController < ApplicationController
   def index
     @medicines = Medicine.where(user_id: current_user).order("start_time DESC").page(params[:page]).per(3)
     @nickname = current_user.nickname
+    @user = current_user
   end
 
   def new
@@ -47,6 +48,6 @@ class MedicinesController < ApplicationController
   private
 
   def medicine_params
-    params.require(:medicine).permit(:name, :start_time, :memo).merge(user_id: current_user.id)
+    params.require(:medicine).permit(:name, :start_time, :memo, :image).merge(user_id: current_user.id)
   end
 end

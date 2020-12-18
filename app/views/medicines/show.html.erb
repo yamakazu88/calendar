@@ -16,6 +16,9 @@
       <th><strong>【メモ】</strong></th><td><%= @medicine.memo %></td>
     </tr>
 
+    <tr>
+      <th><strong>【登録画像】</strong></th><td><%= image_tag @medicine.image.variant(resize: '500x500'), class: 'medicine-image' if @medicine.image.attached? %></td>
+    </tr>
   </table>
 </div>
 <br>
