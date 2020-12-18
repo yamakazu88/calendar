@@ -21,7 +21,7 @@
   <div class="medicine-name">
     <%= f.label :【処方名】 %>
     <br>
-    <%= f.text_field :name,placeholder: "薬の名前を入力", class:"name-form" %>
+    <%= f.text_field :name, placeholder: "薬の名前を入力", class:"name-form" %>
   </div>
   <br>
 
@@ -35,7 +35,8 @@
   <div class="medicine-tag">
     <%= f.label :【タグ】 %>
     <br>
-    <%= f.text_field :tag_list, value: @medicine.tag_list.join(','), class:"tag-form" %>
+    <%= f.text_field :tag_list, value: @medicine.tag_list.join(','), placeholder: "症状別にタグ付け", class:"tag-form" %>
+    <p>※タグを複数加える場合は「,」でつなげてください。<br>　例）発熱,頭痛</p>
   </div>
   <br>
 
