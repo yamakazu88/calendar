@@ -13,6 +13,10 @@
     </tr>
 
     <tr>
+      <th><strong>【タグ】</strong></th><td><%= raw(@medicine.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %></td>
+    </tr>
+
+    <tr>
       <th><strong>【メモ】</strong></th><td><%= @medicine.memo %></td>
     </tr>
 

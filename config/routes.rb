@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   end
 
   resources :medicines
+  get 'tags/:tag', to: 'medicines#index', as: :tag
 end
