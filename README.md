@@ -71,7 +71,7 @@
 | Column     | Type       | Options           |
 |------------|------------|-------------------|
 | name       | string     | null: false       |
-| start_time | datetime   | null: false       |
+| start_time | date       | null: false       |
 | memo       | text       |                   |
 | user       | references | foreign_key: true |
 
