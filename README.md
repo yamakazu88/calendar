@@ -15,6 +15,7 @@
 
 - has_many :posts
 - has_many :conditions
+- has_many :medicines
 
 
 
@@ -25,7 +26,7 @@
 | start_time | datetime   | null: false       |
 | title      | string     | null: false       |
 | reason     | string     | null: false       |
-| memo       | text       | null: false       |
+| memo       | text       |                   |
 | user       | references | foreign_key: true |
 |category    | references | foreign_key: true |
 
@@ -59,6 +60,20 @@
 | condition   | integer    | null: false       |
 | memo        | text       |                   |
 | user        | references | foreign_key: true |
+
+### Association
+
+- belongs_to :user
+
+
+## Medicinesテーブル
+
+| Column     | Type       | Options           |
+|------------|------------|-------------------|
+| name       | string     | null: false       |
+| start_time | datetime   | null: false       |
+| memo       | text       |                   |
+| user       | references | foreign_key: true |
 
 ### Association
 
