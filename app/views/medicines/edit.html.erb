@@ -32,6 +32,13 @@
   </div>
   <br>
 
+  <div class="medicine-tag">
+    <%= f.label :【タグ】 %>
+    <br>
+    <%= f.text_field :tag_list, value: @medicine.tag_list.join(','), class:"tag-form" %>
+  </div>
+  <br>
+
   <div class="memo">
     <%= f.label :【メモ】 %>
     <br>

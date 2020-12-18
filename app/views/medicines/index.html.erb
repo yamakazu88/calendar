@@ -19,7 +19,7 @@
           <tr>
             <td><%= medicine.name %></td>
             <td><%= medicine.start_time.strftime("%Y-%m-%d") %></td>
-            <td></td>
+            <td><%= raw(medicine.tag_list.map{ |t| link_to t, tag_path(t) }.join(', ')) %></td>
             <td><%= link_to '詳細', medicine %></td>
             <td><%= link_to '編集', edit_medicine_path(medicine.id) %></td>
             <td><%= link_to '削除',medicine_path(medicine.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,11 +32,13 @@
   <% end %>
   <%= paginate @medicines %>
   <br>
-  <%= link_to "記録する", new_medicine_path, class: "medicine-post" %>
-  <br>
-  <br>
-
-  <div class="mypage-link">
-    <%= link_to 'マイページへ戻る', "users/#{@user.id}", class:"back" %>
-  </div>
+  <ul>
+    <li><%= link_to "記録する", new_medicine_path, class: "medicine-post" %></li>
+    <br>
+    <li><%= link_to 'マイページへ戻る', "users/#{@user.id}", class:"back" %></li>
+    <br>
+    <% if params[:tag] %>
+      <li><%= link_to '絞り込みを解除する', medicines_path, class:"back" %></li>
+    <% end %>
+  </ul>
 </div>
