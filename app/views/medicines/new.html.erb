@@ -1,0 +1,45 @@
+<%= form_with(model: @medicine, local: true) do |f| %>
+
+  <% if @medicine.errors.any? %>
+    <div class="error-alert">
+      <ul>
+        <% @medicine.errors.full_messages.each do |message| %>
+        <li class='error-message'><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+
+  <div class="date">
+    <%= f.label :【処方日】 %>
+    <br>
+    <%= f.date_field :start_time, class:"date-form" %>
+  </div>
+  <br>
+
+  <div class="medicine-name">
+    <%= f.label :【処方名】 %>
+    <br>
+    <%= f.text_field :name,placeholder: "薬の名前を入力", class:"name-form" %>
+  </div>
+  <br>
+
+  <div class="memo">
+    <%= f.label :【メモ】 %>
+    <br>
+    <%= f.text_field :memo, class:"memo-form" %>
+  </div>
+  <br>
+
+
+  <div class="submit">
+    <%= f.submit "登録" %>
+  </div>
+  <br>
+
+  <div class="show-link">
+    <%= link_to 'Back', medicines_path, class:"back" %>
+  </div>
+
+<% end %>

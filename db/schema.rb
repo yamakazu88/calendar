@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_030800) do
+ActiveRecord::Schema.define(version: 2020_12_18_023535) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 2020_12_14_030800) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_conditions_on_user_id"
+  end
+
+  create_table "medicines", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.date "start_time", null: false
+    t.text "memo"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_medicines_on_user_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -64,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_12_14_030800) do
   end
 
   add_foreign_key "conditions", "users"
+  add_foreign_key "medicines", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
 end
