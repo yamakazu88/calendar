@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'posts#index'
+
   resources :posts do
     collection do
       get 'search'
     end
   end
+
   resources :users, only: :show
+
   resources :conditions do
     collection do
       get 'temp'
@@ -16,4 +19,6 @@ Rails.application.routes.draw do
       get 'com'
     end
   end
+
+  resources :medicines
 end

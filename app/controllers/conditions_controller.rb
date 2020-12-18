@@ -10,8 +10,6 @@ class ConditionsController < ApplicationController
 
   def create
     @data = Condition.create(condition_params)
-    # @data.temperature += params[:temperature].to_f
-    # @data.weight += params[:weight].to_f
     if @data.save
       @data.temperature += params[:temperature].to_f
       @data.weight += params[:weight].to_f
