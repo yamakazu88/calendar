@@ -33,4 +33,10 @@
   <%= paginate @medicines %>
   <br>
   <%= link_to "記録する", new_medicine_path, class: "medicine-post" %>
+  <br>
+  <br>
+
+  <div class="mypage-link">
+    <%= link_to 'マイページへ戻る', "users/#{@user.id}", class:"back" %>
+  </div>
 </div>

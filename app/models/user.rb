@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :conditions
+  has_many :medicines
 
   with_options presence: true do
     validates :nickname

@@ -67,3 +67,6 @@ gem 'ransack'
 
 gem "chartkick"
 gem 'groupdate'
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
