@@ -1,6 +1,7 @@
 class MedicinesController < ApplicationController
   def index
     @medicines = Medicine.where(user_id: current_user).order("start_time DESC").page(params[:page]).per(3)
+    @nickname = current_user.nickname
   end
 
   def new
@@ -18,6 +19,7 @@ class MedicinesController < ApplicationController
 
   def show
     @medicine = Medicine.find(params[:id])
+    @nickname = current_user.nickname
   end
 
   def destroy

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div class="show">
+  <h1 class="mypage-title">＜<%= @medicine.name %>の登録詳細ページ＞</h1>
+  <br>
+  <table>
+    <tr>
+      <th><strong>【処方名】</strong></th><td><%= @medicine.name %></td>
+    </tr>
+
+    <tr>
+      <th><strong>【処方日】</strong></th><td><%= @medicine.start_time.strftime("%Y-%m-%d") %></td>
+    </tr>
+
+    <tr>
+      <th><strong>【メモ】</strong></th><td><%= @medicine.memo %></td>
+    </tr>
+
+  </table>
+</div>
+<br>
+
+<div class="show-link">
+  <%= link_to '編集', edit_medicine_path(@medicine), class:"edit" %>
+  <%= link_to 'Back', medicines_path, class:"back" %>
+</div>
