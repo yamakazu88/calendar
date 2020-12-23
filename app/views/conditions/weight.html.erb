@@ -1,7 +1,7 @@
 <div class="weight-chart">
   <h1 class="graph-title">＜体重グラフ＞</h1>
   <br>
-   <%= line_chart Condition.pluck(:start_time, :weight), xtitle: "日付", ytitle: "体重", curve: false, min: 30, max: 120, id: "column-chart", width: "100%", height: "300px" %>
+   <%= line_chart Condition.where(user_id: current_user).pluck(:start_time, :weight), xtitle: "日付", ytitle: "体重", curve: false, min: 30, max: 120, id: "column-chart", width: "100%", height: "300px" %>
 </div>
 <br>
 <div class="show-link">

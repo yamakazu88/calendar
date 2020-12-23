@@ -45,7 +45,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:keyword]).order("start_time DESC").page(params[:page]).per(5)
+    @posts = Post.where(user_id: current_user).search(params[:keyword]).order("start_time DESC").page(params[:page]).per(5)
     @keyword = params[:keyword]
     @results = @p.result.includes(:category).order("start_time DESC").page(params[:page]).per(5)  # 検索条件にマッチした商品の情報を取得（詳細検索）
     set_post_column
@@ -59,7 +59,7 @@ class PostsController < ApplicationController
   end
 
   def search_post
-    @p = Post.ransack(params[:q])  # 検索オブジェクトを生成
+    @p = Post.where(user_id: current_user).ransack(params[:q])  # 検索オブジェクトを生成
   end
 
   def set_post_column
