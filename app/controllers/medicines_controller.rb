@@ -1,4 +1,6 @@
 class MedicinesController < ApplicationController
+  before_action :medicine_set, only: [:show, :destroy, :edit, :update]
+
   def index
     @nickname = current_user.nickname
     @user = current_user
@@ -23,25 +25,21 @@ class MedicinesController < ApplicationController
   end
 
   def show
-    @medicine = Medicine.find(params[:id])
     @nickname = current_user.nickname
   end
 
   def destroy
-    @medicine = Medicine.find(params[:id])
     @medicine.destroy
     redirect_to medicines_path, notice:"削除しました"
   end
 
   def edit
-    @medicine = Medicine.find(params[:id])
     if current_user.id != @medicine.user_id
       redirect_to medicines_path
     end
   end
 
   def update
-    @medicine = Medicine.find(params[:id])
     if @medicine.update(medicine_params)
       redirect_to medicines_path, notice: "編集しました"
     else
@@ -53,5 +51,9 @@ class MedicinesController < ApplicationController
 
   def medicine_params
     params.require(:medicine).permit(:name, :start_time, :memo, :image, :tag_list).merge(user_id: current_user.id)
+  end
+
+  def medicine_set
+    @medicine = Medicine.find(params[:id])
   end
 end
