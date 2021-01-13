@@ -1,4 +1,6 @@
 class ConditionsController < ApplicationController
+  before_action :condition_set, only: [:show, :destroy, :edit, :update]
+
   def index
     @data = Condition.where(user_id: current_user).order("start_time DESC").page(params[:page]).per(5)
     @nickname = current_user.nickname
@@ -21,19 +23,16 @@ class ConditionsController < ApplicationController
   end
 
   def show
-    @data = Condition.find(params[:id])
     @nickname = current_user.nickname
   end
 
   def edit
-    @data = Condition.find(params[:id])
     if current_user.id != @data.user_id
       redirect_to conditions_path
     end
   end
 
   def update
-    @data = Condition.find(params[:id])
     if @data.update(condition_params)
       redirect_to conditions_path, notice: "編集しました"
     else
@@ -42,7 +41,6 @@ class ConditionsController < ApplicationController
   end
 
   def destroy
-    @data = Condition.find(params[:id])
     @data.destroy
     redirect_to conditions_path, notice: "削除しました"
   end
@@ -66,5 +64,9 @@ class ConditionsController < ApplicationController
 
   def condition_params
     params.require(:condition).permit(:start_time, :temperature, :weight, :blood_max, :blood_min, :condition, :memo).merge(user_id: current_user.id)
+  end
+
+  def condition_set
+    @data = Condition.find(params[:id])
   end
 end
